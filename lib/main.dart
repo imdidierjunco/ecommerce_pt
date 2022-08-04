@@ -23,9 +23,7 @@ class EcommercePT extends StatelessWidget {
         PantallaDosScreen.nameRoute: ((context) => PantallaDosScreen()),
         PantallaTresScreen.nameRoute: ((context) => PantallaTresScreen()),
       },
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blueGrey, fontFamily: 'Poppins'),
     );
   }
 }
