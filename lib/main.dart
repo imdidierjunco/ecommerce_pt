@@ -17,7 +17,7 @@ class EcommercePT extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Ecommerce',
-      initialRoute: PantallaUnoScreen.nameRoute,
+      initialRoute: PantallaDosScreen.nameRoute,
       routes: {
         PantallaUnoScreen.nameRoute: ((context) => PantallaUnoScreen()),
         PantallaDosScreen.nameRoute: ((context) => PantallaDosScreen()),

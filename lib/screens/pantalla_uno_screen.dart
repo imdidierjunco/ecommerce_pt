@@ -3,6 +3,7 @@
 import 'package:ecommerce_pt/providers/products_provider.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/actions_alert.dart';
 import '../widgets/add_remove_widget.dart';
 import '../widgets/checkout_button_widget.dart';
 import '../widgets/price_widget.dart';
@@ -32,7 +33,7 @@ class _PantallaUnoScreenState extends State<PantallaUnoScreen> {
         actions: <Widget>[
           IconButton(
               onPressed: () {
-                _showDialog(context);
+                _showDialog();
               },
               icon: const Icon(
                 Icons.delete,
@@ -65,7 +66,9 @@ class _PantallaUnoScreenState extends State<PantallaUnoScreen> {
                             fontStyle: FontStyle.normal)),
                     leading: Icon(Icons.photo, size: (77))),
               ),
-              AddRemoveWidget(),
+              Expanded(
+                child: AddRemoveWidget(),
+              ),
               Prices(),
             ]),
       ),
@@ -73,27 +76,37 @@ class _PantallaUnoScreenState extends State<PantallaUnoScreen> {
     );
   }
 
-  Widget _showDialog(context) {
-    return AlertDialog(
-      title: Text('Eliminar todo'),
-      content: SingleChildScrollView(
-          child: ListBody(
-        children: const [
-          Text('Se eliminarán todos los productos en el carrito')
-        ],
-      )),
-      actions: [
-        TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, 'onescreen');
-            },
-            child: Text('Cancelar')),
-        TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, 'onescreen');
-            },
-            child: Text('Continuar'))
-      ],
-    );
+  _showDialog() {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          const textStyle = TextStyle(
+              color: Color(0xff020228),
+              fontSize: 12,
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.w400);
+          const textStyle2 = TextStyle(
+              color: Color(0xff020228),
+              fontSize: 20,
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.w600);
+          return AlertDialog(
+            actionsAlignment: MainAxisAlignment.center,
+            title: Center(
+                child: Text(
+              'Eliminar todo',
+              style: textStyle2,
+            )),
+            content: SingleChildScrollView(
+                child: ListBody(
+              children: const [
+                Text('Se eliminarán todos los productos en el carrito')
+              ],
+            )),
+            actions: const [
+              ActionsAlert(textStyle: textStyle),
+            ],
+          );
+        });
   }
 }

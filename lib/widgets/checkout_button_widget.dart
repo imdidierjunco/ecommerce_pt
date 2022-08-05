@@ -11,7 +11,7 @@ class CheckoutButton extends StatelessWidget {
         color: Color(0xFF020228), fontSize: 20, fontWeight: FontWeight.w600);
     return ElevatedButton(
         onPressed: () {
-          Navigator.pushNamed(context, 'twoscreen');
+          Navigator.pushNamed(context, 'threescreen');
         },
         style: ElevatedButton.styleFrom(
           primary: const Color(0xFFFFC96B),
