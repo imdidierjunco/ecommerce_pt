@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class CheckoutButton extends StatelessWidget {
   const CheckoutButton({
     Key? key,
+    required String texto,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var textStyle = const TextStyle(
+    String texto = '';
+    const textStyle = TextStyle(
         color: Color(0xFF020228), fontSize: 20, fontWeight: FontWeight.w600);
     return ElevatedButton(
         onPressed: () {
@@ -19,7 +21,7 @@ class CheckoutButton extends StatelessWidget {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           minimumSize: const Size(460, 59),
         ),
-        child: Text('Finalizar compra', style: textStyle)
+        child: Text('$texto', style: textStyle)
         // side: BorderRadius(Radius.circular(radius: 10.0))),
         );
   }

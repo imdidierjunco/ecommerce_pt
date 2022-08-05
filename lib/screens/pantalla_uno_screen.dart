@@ -3,6 +3,7 @@
 import 'package:ecommerce_pt/providers/products_provider.dart';
 import 'package:flutter/material.dart';
 
+import '../models/carts_model.dart';
 import '../widgets/actions_alert.dart';
 import '../widgets/add_remove_widget.dart';
 import '../widgets/checkout_button_widget.dart';
@@ -17,13 +18,26 @@ class PantallaUnoScreen extends StatefulWidget {
 
 class _PantallaUnoScreenState extends State<PantallaUnoScreen> {
   final productsProvider = ProductsProvider();
+  List<ProductModel> products = [];
+  List<CartModel> cart = [];
+
+  @override
+  void initState() {
+    super.initState();
+    productsProvider.getProducts().then((value) async {
+      setState(() {
+        products.addAll(value);
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         excludeHeaderSemantics: false,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0XFFF5F5F5),
+        elevation: 0.0,
         centerTitle: true,
         title: const Text('Mi carrito',
             style: TextStyle(
@@ -41,38 +55,60 @@ class _PantallaUnoScreenState extends State<PantallaUnoScreen> {
               ))
         ],
       ),
-      body: Container(
-        padding: const EdgeInsets.all(10.0),
-        child: ListView(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            children: <Widget>[
-              Container(
-                height: 110,
-                width: 324,
-                padding: EdgeInsets.all(12),
-                child: ListTile(
-                    title: Text('Nombre producto',
+      body: Column(mainAxisSize: MainAxisSize.min, children: [
+        Expanded(
+          child: ListView.builder(
+              itemCount: products.length,
+              itemBuilder: (context, int index) {
+                // int userid = cart[index].userId;
+                return Container(
+                  color: Color(0XFFF5F5F5),
+                  padding: EdgeInsets.all(10),
+                  height: 130,
+                  width: 350,
+                  child: ListTile(
+                    title: Text(products[index].title,
+                        maxLines: 2,
                         style: TextStyle(
                           color: Color(0xff020228),
                           fontSize: 15,
                           fontWeight: FontWeight.w600,
                           fontStyle: FontStyle.normal,
                         )),
-                    subtitle: Text('Precio',
+                    subtitle: Text(r'$' + products[index].price,
                         style: TextStyle(
                             color: Color(0xff020228),
                             fontSize: 15,
                             fontWeight: FontWeight.w700,
                             fontStyle: FontStyle.normal)),
-                    leading: Icon(Icons.photo, size: (77))),
-              ),
-              Expanded(
-                child: AddRemoveWidget(),
-              ),
-              Prices(),
-            ]),
-      ),
-      floatingActionButton: CheckoutButton(),
+                    leading: Image.network(
+                      products[index].image,
+                      width: 100,
+                    ),
+                    trailing: Container(
+                        height: 130,
+                        width: 102,
+                        color: Color(0XFFF5F5F5),
+                        child: AddRemoveWidget()),
+                    onTap: () {
+                      Navigator.pushNamed(context, 'twoscreen');
+                    },
+                  ),
+                );
+              }),
+        )
+      ]),
+      floatingActionButton: Container(
+          color: Color(0XFFF5F5F5),
+          child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Prices(),
+                CheckoutButton(
+                  texto: 'Finalizar compra',
+                )
+              ])),
     );
   }
 

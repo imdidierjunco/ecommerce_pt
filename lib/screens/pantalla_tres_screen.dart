@@ -34,7 +34,7 @@ class PantallaTresScreen extends StatelessWidget {
               color: Color(0xff020228)),
         ),
         Container(
-          height: 80,
+          height: 60,
         ),
         Padding(
           padding: const EdgeInsets.all(15.0),
@@ -66,7 +66,7 @@ class PantallaTresScreen extends StatelessWidget {
               ],
             ),
             Container(
-              height: 80,
+              height: 50,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,7 +84,9 @@ class PantallaTresScreen extends StatelessWidget {
           ]),
         )
       ]),
-      floatingActionButton: const CheckoutButton(),
+      floatingActionButton: const CheckoutButton(
+        texto: 'Seguir comprando',
+      ),
     );
   }
 }

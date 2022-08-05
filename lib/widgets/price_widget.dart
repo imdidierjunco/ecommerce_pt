@@ -14,7 +14,7 @@ class Prices extends StatelessWidget {
         fontStyle: FontStyle.normal);
     return SizedBox(
       height: 45.5,
-      width: 332,
+      width: 450,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: const [

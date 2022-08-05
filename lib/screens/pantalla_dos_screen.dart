@@ -13,11 +13,6 @@ class PantallaDosScreen extends StatelessWidget {
         fontStyle: FontStyle.normal);
     return Scaffold(
       body: Stack(children: [
-        BackButton(
-          onPressed: (() {
-            Navigator.pushNamed(context, 'onescreen');
-          }),
-        ),
         Column(
           children: [
             Image.network(
@@ -61,8 +56,21 @@ class PantallaDosScreen extends StatelessWidget {
             )
           ],
         ),
+        Container(
+          padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 15),
+          height: 25,
+          child: IconButton(
+            color: const Color(0xFF000000),
+            icon: const Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.pushNamed(context, 'onescreen');
+            },
+          ),
+        )
       ]),
-      floatingActionButton: CheckoutButton(),
+      floatingActionButton: CheckoutButton(
+        texto: 'Ir al carrito',
+      ),
     );
   }
 }
