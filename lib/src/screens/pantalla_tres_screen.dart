@@ -4,6 +4,8 @@ import 'package:lottie/lottie.dart';
 class PantallaTresScreen extends StatelessWidget {
   static const String nameRoute = 'threescreen';
 
+  const PantallaTresScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     const textStyle = TextStyle(

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class PantallaDosScreen extends StatelessWidget {
   static const String nameRoute = 'twoscreen';
 
+  const PantallaDosScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final Map arguments =
@@ -16,7 +18,7 @@ class PantallaDosScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(children: [
         AppBar(
-          backgroundColor: Color(0XFFFFFFFF),
+          backgroundColor: const Color(0XFFFFFFFF),
           leading: IconButton(
             color: const Color(0xFF000000),
             icon: const Icon(Icons.arrow_back_ios),

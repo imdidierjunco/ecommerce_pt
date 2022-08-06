@@ -19,9 +19,9 @@ class EcommercePT extends StatelessWidget {
       title: 'Ecommerce',
       initialRoute: PantallaUnoScreen.nameRoute,
       routes: {
-        PantallaUnoScreen.nameRoute: ((context) => PantallaUnoScreen()),
-        PantallaDosScreen.nameRoute: ((context) => PantallaDosScreen()),
-        PantallaTresScreen.nameRoute: ((context) => PantallaTresScreen()),
+        PantallaUnoScreen.nameRoute: ((context) => const PantallaUnoScreen()),
+        PantallaDosScreen.nameRoute: ((context) => const PantallaDosScreen()),
+        PantallaTresScreen.nameRoute: ((context) => const PantallaTresScreen()),
       },
       theme: ThemeData(primarySwatch: Colors.blueGrey, fontFamily: 'Poppins'),
     );

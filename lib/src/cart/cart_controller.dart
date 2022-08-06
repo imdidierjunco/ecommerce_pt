@@ -7,6 +7,7 @@ class CartController extends GetxController {
   var cartItems = [];
   var loading = false.obs;
   var subtotal = 0.0.obs;
+  List<int> quantity = [];
 
   CartController() {
     loadCartFromApi();
@@ -14,7 +15,7 @@ class CartController extends GetxController {
 
   loadCartFromApi() async {
     loading(true);
-    var productsList = await cartRepository.loadCartFromApi();
+    List<dynamic> productsList = await cartRepository.loadCartFromApi();
 
     for (var i = 0; i < productsList.length; i++) {
       var product =
@@ -22,6 +23,8 @@ class CartController extends GetxController {
       subtotal(subtotal.value + product["price"] * productsList[i]["quantity"]);
       cartItems
           .add({"product": product, "quantity": productsList[i]["quantity"]});
+
+      quantity.add(productsList[i]["quantity"]);
     }
     loading(false);
   }
