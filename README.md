@@ -1,8 +1,9 @@
 # ecommerce_pt
 
-A new Flutter project.
+Emulado en un dispositivo físico Moto G 8 power
 
 ## Getting Started
+
 
 This project is a starting point for a Flutter application.
 
