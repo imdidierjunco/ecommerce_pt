@@ -52,7 +52,7 @@ class _PantallaUnoScreenState extends State<PantallaUnoScreen> {
               return Center(child: Text("No cart items found!"));
             }
             return Padding(
-              padding: const EdgeInsets.only(top: 180),
+              padding: const EdgeInsets.only(top: 150),
               child: ListProductsInCart(cartStateCtrl, context),
             );
           }),

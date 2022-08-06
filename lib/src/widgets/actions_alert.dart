@@ -16,7 +16,7 @@ class ActionsAlert extends StatelessWidget {
             primary: const Color(0xFFFFC96B),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-            minimumSize: const Size(122, 43),
+            minimumSize: const Size(140, 43),
           ),
           onPressed: () {
             Navigator.pushNamed(context, 'onescreen');
@@ -31,7 +31,7 @@ class ActionsAlert extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 side: const BorderSide(color: Color(0xFFFFC96B), width: 1),
                 borderRadius: BorderRadius.circular(5)),
-            minimumSize: const Size(122, 43),
+            minimumSize: const Size(140, 43),
           ),
           onPressed: () {
             Navigator.pushNamed(context, 'onescreen');
