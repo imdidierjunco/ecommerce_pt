@@ -1,8 +1,9 @@
-import 'package:ecommerce_pt/widgets/checkout_button_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class PantallaTresScreen extends StatelessWidget {
   static const String nameRoute = 'threescreen';
+
   @override
   Widget build(BuildContext context) {
     const textStyle = TextStyle(
@@ -17,9 +18,9 @@ class PantallaTresScreen extends StatelessWidget {
         color: Color(0xff020228));
     return Scaffold(
       body: Column(children: [
-        Image.network(
-          'https://picsum.photos/seed/413/600',
-          width: 500,
+        SizedBox(
+          height: 500,
+          child: Center(child: Lottie.asset('assets/lottie_animation.json')),
         ),
         Container(
           height: 35,
@@ -36,7 +37,8 @@ class PantallaTresScreen extends StatelessWidget {
         Container(
           height: 60,
         ),
-        Padding(
+        Container(
+          margin: EdgeInsets.all(10),
           padding: const EdgeInsets.all(15.0),
           child: Column(children: [
             Row(
@@ -66,7 +68,11 @@ class PantallaTresScreen extends StatelessWidget {
               ],
             ),
             Container(
-              height: 50,
+              height: 25,
+            ),
+            Divider(),
+            Container(
+              height: 25,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -76,7 +82,7 @@ class PantallaTresScreen extends StatelessWidget {
                   style: textStyle,
                 ),
                 Text(
-                  '30400',
+                  r'$27500.7',
                   style: textStyle2,
                 )
               ],
@@ -84,9 +90,24 @@ class PantallaTresScreen extends StatelessWidget {
           ]),
         )
       ]),
-      floatingActionButton: const CheckoutButton(
-        texto: 'Seguir comprando',
-      ),
+      floatingActionButton: ElevatedButton(
+          onPressed: () {
+            Navigator.pushNamed(
+              context,
+              'onescreen',
+            );
+          },
+          style: ElevatedButton.styleFrom(
+            primary: const Color(0xFFFFC96B),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            minimumSize: const Size(460, 59),
+          ),
+          child: const Text('Seguir comprando',
+              style: TextStyle(
+                  color: Color(0xFF020228),
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600))),
     );
   }
 }
